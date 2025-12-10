@@ -269,6 +269,9 @@ On GPU, generation takes ~8 seconds per 512×512 image.
 🛠️ Best-in-class scheduler comparison
 🚀 Fast inference & clean model deployment structure
 
+<img width="512" height="512" alt="generated_133321" src="https://github.com/user-attachments/assets/920ab8a1-9f66-4c89-800a-943093f6362c" />
+
+
 🎉 Conclusion
 
 This project delivers a fully functional, fine-tuned, and evaluated text-to-image system—capable of generating high-quality animal images conditioned on natural-language prompts.
