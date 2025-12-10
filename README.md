@@ -1,4 +1,4 @@
-🌟 README — End-to-End CLIP + Stable Diffusion Pipeline with Fine-Tuning & Evaluation
+🌟 README — Text-to-Image-Generation (End-to-End CLIP + Stable Diffusion Pipeline with Fine-Tuning & Evaluation)
 
 Welcome to the Text-to-Image Generation & Fine-Tuning Project! 🚀
 This repository implements a complete, production-grade workflow that combines COCO Dataset preprocessing, CLIP text embeddings, Stable Diffusion generation, domain-specific fine-tuning, and quantitative evaluation using FID & Inception Score.
