@@ -1,0 +1,329 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 1200px;
+    width: 100%;
+    padding: 40px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin: 10px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.model-info {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.info-badge {
+    background: #f0f0f0;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    color: #555;
+}
+
+.info-badge.success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.info-badge.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Main Layout */
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Input Section */
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.prompt-container, .negative-prompt-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95em;
+}
+
+textarea, input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: border-color 0.3s;
+    resize: vertical;
+}
+
+textarea:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Generate Button */
+.generate-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.generate-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.generate-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Example Prompts */
+.examples {
+    margin-top: 20px;
+}
+
+.examples p {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.example-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.chip:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+/* Output Section */
+.output-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.image-container {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #f9f9f9;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid #e0e0e0;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.placeholder {
+    text-align: center;
+    color: #999;
+}
+
+.placeholder svg {
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.placeholder p {
+    font-size: 1.1em;
+}
+
+/* Loading State */
+.loading {
+    text-align: center;
+    color: #666;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 20px;
+    border: 4px solid #f0f0f0;
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading p {
+    margin-bottom: 8px;
+}
+
+.loading-hint {
+    font-size: 0.9em;
+    color: #999;
+}
+
+/* Error State */
+.error {
+    text-align: center;
+    padding: 30px;
+    color: #d32f2f;
+}
+
+.error button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.error button:hover {
+    background: #d32f2f;
+}
+
+/* Image Info */
+.image-info {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.info-row {
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.info-row strong {
+    color: #333;
+    margin-right: 8px;
+}
+
+.download-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.download-btn:hover {
+    background: #45a049;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    color: #666;
+    font-size: 0.9em;
+}
